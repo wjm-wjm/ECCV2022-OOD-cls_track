@@ -1,0 +1,29 @@
+## Config File
+
+dataset: ROBIN  # dataset name
+log_dir: logs/mae_large_ood-cls_re0.25_nobn_maskratio0.5_batchsize128_1.0mnceloss_buildtransform_colorjitter0.4_augment2dcc_norealimg_motionblur_elastic_snow_seed3407_lr0.00005_time_  # path to log file
+train_data: ../../../../dataset/ROBIN/processed_dataset/ROBINv1.1-cls-pose/train  # path to train dataset
+val_data_iid: ../../../../dataset/ROBIN/processed_dataset/ROBINv1.1-cls-pose/iid_test  # path to iid validation datas
+val_data_nui: ../../../../dataset/ROBIN/processed_dataset/ROBINv1.1-cls-pose/nuisances  # path to nuisance validation dataset
+val_data_final: ../../../../dataset/ROBIN/OOD-CV-phase2/phase2-cls  # path to final validation dataset
+input_size: 224  # input image size
+arch: mae  # model architecture (default: resnet50 or mae)
+workers: 4  # number of data loading workers (default: 4)
+epochs: 90  # number of total epochs to run
+warmup_epochs: 5  # epochs to warmup lr
+start_epoch: 0  # manual epoch number (useful on restarts)
+batch_size: 128  # mini-batch size (default: 128/256), this is the total batch size of all GPUs on the current node when using Data Parallel or Distributed Data Parallel
+lr: 0.00005  # initial learning rate (default: 0.0001)
+min_lr: 0.000001  # lower lr bound for cyclic schedulers that hit 0 (default: 0.000001)
+momentum: 0.9  # momentum
+weight_decay: 0.0001  # weight decay (default: 0.0001)
+betas: [0.9, 0.999]  # AdamW betas (default: [0.9, 0.999])
+print_freq: 10  # print frequency (default: 10)
+pretrained: on  # use pre-trained model
+pretrained_model_path: ../mae_checkpoints/mae_visualize_vit_large.pth  # pre-trained model path
+seed: 3407  # seed for initializing training 666/665/3407/114514
+cutmix: off  # cutmix option
+beta: 1.0  # hyperparameter beta for cutmix
+cutmix_prob: -1  # cutmix probability
+patch_aug: off  # patch level augmentation
+
